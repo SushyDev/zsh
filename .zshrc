@@ -7,6 +7,7 @@ source "$ZSH_CUSTOM/lib/init-completions.zsh"
 source "$ZSH_CUSTOM/lib/1password.zsh"
 source "$ZSH_CUSTOM/lib/fix-cursor.zsh"
 source "$ZSH_CUSTOM/lib/git.zsh"
+source "$ZSH_CUSTOM/lib/edit-line.zsh"
 
 # Modules
 source "$ZSH_CUSTOM/modules/pkgx.zsh"
@@ -21,7 +22,6 @@ source "$ZSH_CUSTOM/functions.zsh"
 # Plugins
 zstyle '*:compinit' arguments -u
 
-source "$ZSH_CUSTOM/plugins/zsh-vi-mode/zsh-vi-mode.zsh"
 source "$ZSH_CUSTOM/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 source "$ZSH_CUSTOM/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
 source "$ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
