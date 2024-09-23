@@ -8,6 +8,10 @@ done
 
 # Modules
 for file in $ZSH_CUSTOM/modules/*.zsh; do
+    if [ "$NO_TMUX" -eq 1 ] && [ "$(basename $file)" = "tmux.zsh" ]; then
+        continue
+    fi
+
     source $file
 done
 
