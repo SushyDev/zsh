@@ -1,6 +1,5 @@
 # Environment
 export ZSH_CUSTOM="$DOTFILES/zsh/custom"
-export TERM="xterm-256color"
 
 # Modules
 for file in $ZSH_CUSTOM/modules/*.zsh; do
