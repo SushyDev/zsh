@@ -1,4 +1,4 @@
-env +node@20
+eval "$(pkgx +node@20)"
 
 [ ! "$(command -v github-copilot-cli)" ] && return 
 
