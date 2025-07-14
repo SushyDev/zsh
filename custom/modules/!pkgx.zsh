@@ -1,6 +1,74 @@
-[ ! "$(command -v pkgx)" ] && echo "Installing pkgx" && sudo zsh -c 'eval "$(curl -Ssf https://pkgx.sh)"'
+#!/usr/bin/env zsh
 
-[ ! $(command -v tmux) ] && eval $(pkgx +tmux)
-[ ! $(command -v fzf) ] && eval $(pkgx +fzf)
-[ ! $(command -v rg) ] && eval $(pkgx +rg)
-[ ! $(command -v nvim) ] && eval $(pkgx +neovim.io)
+local -rA _LAZY_LOAD_PKGX_MAP=(
+	[tmux]=tmux
+	[fzf]=fzf
+	[rg]=rg
+	[node]=node
+	[nvim]=neovim.io
+	[htop]=htop
+)
+
+local EXIT_SUCCESS=0
+local EXIT_COMMAND_NOT_FOUND=127
+local EXIT_FATAL=1
+
+local _pkgx_check_install() {
+	[ ! "$(command -v pkgx)" ] && return EXIT_COMMAND_NOT_FOUND
+
+	return EXIT_SUCCESS
+}
+
+local pkgx_install() {
+	_pkgx_check_install && {
+		echo "pkgx_install: pkgx is already installed." >&2
+		return EXIT_SUCCESS
+	}
+
+	zsh -c 'eval "$(curl -Ssf https://pkgx.sh)"' > /dev/null 2>&1
+	return EXIT_SUCCESS
+}
+
+local pkgx_add() {
+	_pkgx_check_install || {
+		echo "pkgx_eval: pkgx is not installed. Please run 'pkgx_install' first." >&2
+		return EXIT_COMMAND_NOT_FOUND
+	}
+
+	local cmd_name="$1"
+	local pkg_name="${2:-$cmd_name}"
+
+	[[ -z "$cmd_name" ]] && {
+		echo "pkgx_add: command name is required" >&2
+		return EXIT_COMMAND_NOT_FOUND
+	}
+
+	[ ! "$(command command -v $cmd_name)" ] && {
+		eval "$(pkgx +${pkg_name})"
+	}
+
+	return EXIT_SUCCESS
+}
+
+local pkgx_lazy() {
+	_pkgx_check_install || {
+		echo "pkgx_lazy: pkgx is not installed. Please run 'pkgx_install' first." >&2
+		return 127
+	}
+
+	pkgx_add "$1" "$2" 
+
+	unalias "$1" 2>/dev/null
+
+	$1 ${@:3}
+}
+
+
+_pkgx_check_install || pkgx_install
+_pkgx_check_install && alias ".$"="pkgx_add $1 $2"
+
+for cmd_name in ${(k)_LAZY_LOAD_PKGX_MAP}; do
+	local pkg_name="${_LAZY_LOAD_PKGX_MAP[$cmd_name]}"
+
+	alias "${cmd_name}"="pkgx_lazy ${cmd_name} ${pkg_name} \$@"
+done
