@@ -3,10 +3,6 @@ export ZSH_CUSTOM="$DOTFILES/zsh/custom"
 
 # Modules
 for file in $ZSH_CUSTOM/modules/*.zsh; do
-    if [ "$NO_TMUX" -eq 1 ] && [ "$(basename $file)" = "!tmux.zsh" ]; then
-        continue
-    fi
-
     echo "Init module: $file"
     source $file
 done
@@ -40,4 +36,4 @@ echo "Init user .zshrc"
 [ -r "$HOME/.zshrc" ] && source "$HOME/.zshrc"
 
 # Clear
-#printf "\033c"
+printf "\033c"

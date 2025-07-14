@@ -1,6 +1,8 @@
 # Run this function to add additional completions to .compdump
 
-autoload -U compinit && compinit -u
+autoload -Uz compinit
+[ ! "$(find $DOTFILES/zsh/.zcompdump -mtime +1)" ] || compinit
+compinit -C
 
 fpath+=($ZSH_CUSTOM/completions $fpath)
 
