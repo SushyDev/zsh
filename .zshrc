@@ -1,5 +1,5 @@
 # Environment
-export ZSH_CUSTOM="$DOTFILES/zsh/custom"
+export ZSH_CUSTOM="$HOME/zsh/custom"
 
 # Modules
 for file in $ZSH_CUSTOM/modules/*.zsh; do
