@@ -27,7 +27,7 @@ done
 
 # General
 echo "Init theme"
-source "$ZSH_CUSTOM/themes/vapor.zsh"
+source "$ZSH_CUSTOM/themes/monochromatic.zsh"
 echo "Init aliases"
 source "$ZSH_CUSTOM/aliases.zsh"
 

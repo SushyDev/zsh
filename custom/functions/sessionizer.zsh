@@ -13,7 +13,14 @@ _new() {
 compdef _new new
 
 function dev() {
-	PROJECT=$(find $PROJECTS -mindepth 1 -maxdepth 1 -type d | fzf --height 30% --reverse)
+	local PROJECT
+
+	if [[ -z "$TMUX" ]]; then
+		PROJECT=$(find $PROJECTS -mindepth 1 -maxdepth 1 -type d | fzf --height 30% --reverse)
+	else
+		PROJECT=$(find $PROJECTS -mindepth 1 -maxdepth 1 -type d | fzf --tmux --reverse)
+	fi
+
 	[ -z "$PROJECT" ] || new $PROJECT
 }
 
