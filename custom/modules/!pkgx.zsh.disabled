@@ -63,12 +63,11 @@ local pkgx_lazy() {
 	$1 ${@:3}
 }
 
-
 _pkgx_check_install || pkgx_install
-_pkgx_check_install && alias ".$"="pkgx_add $1 $2"
+#_pkgx_check_install && alias ".$"="pkgx_add $1 $2"
 
-for cmd_name in ${(k)_LAZY_LOAD_PKGX_MAP}; do
-	local pkg_name="${_LAZY_LOAD_PKGX_MAP[$cmd_name]}"
-
-	alias "${cmd_name}"="pkgx_lazy ${cmd_name} ${pkg_name} \$@"
-done
+# for cmd_name in ${(k)_LAZY_LOAD_PKGX_MAP}; do
+# 	local pkg_name="${_LAZY_LOAD_PKGX_MAP[$cmd_name]}"
+# 
+# 	alias "${cmd_name}"="pkgx_lazy ${cmd_name} ${pkg_name} \$@"
+# done
