@@ -5,4 +5,4 @@
 # [ -z "$TMUX" ] && echo "tmux is not running" && exit 1
 
 # Set tmux conf
-[ ! -z "$TMUX" ] && tmux source-file "$DOTFILES/tmux/tmux.conf" > /dev/null 2>&1
+[ "$TMUX" ] && tmux source-file "$DOTFILES/tmux/tmux.conf" > /dev/null 2>&1
