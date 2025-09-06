@@ -4,8 +4,9 @@ autoload -Uz compinit
 
 if [ -f "$ZDOTDIR/.zcompdump" ]; then
 	[ ! "$(find $ZDOTDIR/.zcompdump -mtime +1)" ] || compinit
-	compinit -C
 fi
+
+compinit -C
 
 fpath+=($ZSH_CUSTOM/completions $fpath)
 
