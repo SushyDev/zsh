@@ -28,7 +28,7 @@ done
 
 # General
 echo "Init theme:	$ZSH_CUSTOM/themes/monochromatic.zsh"
-source "$ZSH_CUSTOM/themes/monochromatic.zsh"
+source "$ZSH_CUSTOM/themes/monochromatic-minimal.zsh"
 echo "Init settings:	$ZSH_CUSTOM/settings.zsh"
 source "$ZSH_CUSTOM/settings.zsh"
 

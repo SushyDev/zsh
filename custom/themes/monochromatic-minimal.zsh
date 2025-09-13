@@ -11,8 +11,8 @@ local user_host="${gray}n@%m${reset_color}"
 local current_dir="${white}~${reset_color}"
 
 precmd() {
-	PROMPT="%{$reset_color}╭${user_host}  ${current_dir}  $(git_prompt_info)
-%{$reset_color}╰${user_symbol}%{$command_color} "
+	PROMPT="%{$reset_color}${user_host}  ${current_dir}  $(git_prompt_info)
+%{$reset_color}${user_symbol}%{$command_color} "
 }
 
 RPROMPT="${return_code}"
