@@ -29,8 +29,8 @@ done
 # General
 echo "Init theme:	$ZSH_CUSTOM/themes/monochromatic.zsh"
 source "$ZSH_CUSTOM/themes/monochromatic.zsh"
-echo "Init aliases:	$ZSH_CUSTOM/aliases.zsh"
-source "$ZSH_CUSTOM/aliases.zsh"
+echo "Init settings:	$ZSH_CUSTOM/settings.zsh"
+source "$ZSH_CUSTOM/settings.zsh"
 
 # Load user zshrc
 echo "Init ~/.zshrc:	$HOME/.zshrc"
