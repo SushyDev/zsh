@@ -4,3 +4,4 @@
 !.zshrc
 !/custom
 !/custom/**/*
+!README.md
