@@ -37,4 +37,4 @@ echo "Init ~/.zshrc:	$HOME/.zshrc"
 [ -r "$HOME/.zshrc" ] && source "$HOME/.zshrc"
 
 # Clear
-# printf $(clear -x)
+[ $DOTFILES_CLEAR_ON_INIT ] && printf $(clear -x)
