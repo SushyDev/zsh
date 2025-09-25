@@ -15,11 +15,7 @@ compdef _new new
 function dev() {
 	local PROJECT
 
-	if [ "$TMUX" ]; then
-		PROJECT=$(find $PROJECTS -mindepth 1 -maxdepth 1 -type d | fzf --tmux --reverse)
-	else
-		PROJECT=$(find $PROJECTS -mindepth 1 -maxdepth 1 -type d | fzf --height 30% --reverse)
-	fi
+	PROJECT=$(find $PROJECTS -mindepth 1 -maxdepth 1 -type d | fzf --tmux --reverse)
 
 	if [ "$PROJECT" ]; then
 		if tmux has-session -t $(basename $PROJECT) 2>/dev/null; then
