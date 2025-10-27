@@ -44,7 +44,7 @@ local nix_add() {
 	fi
 
 	# Safely update PATH
-	PATH="$nix_output/bin:$PATH"
+	PATH="$PATH:$nix_output/bin"
 	export PATH
 
 	return 0
