@@ -1,7 +1,6 @@
 # Environment
 export ZSH_CUSTOM="$(dirname $0)/custom"
 
-
 # Lib - Might need to be placed first but i dont remember why
 for file in $ZSH_CUSTOM/lib/*.zsh; do
 	echo "Init lib:	$file"
