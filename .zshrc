@@ -19,7 +19,7 @@ for file in $ZSH_CUSTOM/functions/*.zsh; do
 	source $file
 done
 
-# Plugins -- # zstyle '*:compinit' arguments -u
+# Plugins - # zstyle '*:compinit' arguments -u
 for file in $ZSH_CUSTOM/plugins/*/*.plugin.zsh; do
 	echo "Init plugin:	$file"
 	source $file
